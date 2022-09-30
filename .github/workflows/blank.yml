@@ -59,7 +59,10 @@ jobs:
           git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-19.1
           
       - name: start building
-        run: PATH="$HOME/bin:$HOME/platform-tools:$PATH" bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
+        run: |
+          ls 
+          ls lineage_build_unified
+          PATH="$HOME/bin:$HOME/platform-tools:$PATH" bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
           
       - name: upload build 
         run: ls ~/build-output
