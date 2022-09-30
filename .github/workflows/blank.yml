@@ -49,15 +49,17 @@ jobs:
           git config --global user.name "NekoIceCream"
           git config --global user.email "NekoIceCream@outlook.co.id"
           
-      - name: start building
+      - name: preparing for building
         run: |
           cd ~
           mkdir lineage-19.x-build-gsi
           cd lineage-19.x-build-gsi
-          repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
+          PATH="$HOME/bin:$HOME/platform-tools:$PATH" repo init -u https://github.com/LineageOS/android.git -b lineage-19.1
           git clone https://github.com/AndyCGYan/lineage_build_unified lineage_build_unified -b lineage-19.1
           git clone https://github.com/AndyCGYan/lineage_patches_unified lineage_patches_unified -b lineage-19.1
-          PATH="$HOME/bin:$HOME/platform-tools:$PATH" bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
+          
+      - name: start building
+        run: PATH="$HOME/bin:$HOME/platform-tools:$PATH" bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
           
       - name: upload build 
         run: ls ~/build-output
