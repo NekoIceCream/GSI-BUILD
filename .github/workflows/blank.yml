@@ -60,6 +60,7 @@ jobs:
           
       - name: start building
         run: |
+          cd ~/lineage-19.x-build-gsi
           ls 
           ls lineage_build_unified
           PATH="$HOME/bin:$HOME/platform-tools:$PATH" bash lineage_build_unified/buildbot_unified.sh treble A64B A64BG 64B 64BG
