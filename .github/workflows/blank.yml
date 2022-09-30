@@ -38,7 +38,7 @@ jobs:
       
       - name: install repo command
         run: |
-          sudo wget curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/platform-tools/repo
+          curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/platform-tools/repo
           chmod a+x $HOME/platform-tools/repo
       
       - name: setup git
