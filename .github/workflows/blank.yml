@@ -38,8 +38,8 @@ jobs:
       
       - name: install repo command
         run: |
-          curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/platform-tools/repo
-          chmod a+x $HOME/platform-tools/repo
+          sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo
+          sudo chmod a+x /bin/repo
       
       - name: setup git
         run: |
